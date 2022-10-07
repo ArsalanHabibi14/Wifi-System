@@ -1,0 +1,13 @@
+Djangojan@aws151413
+
+pythonjan151413
+
+djangoproject1514
+
+https://www.youtube.com/watch?v=SC_79nqsGf4
+
+linkdin account = python@code2022
+
+celery -A celery_worker.celery worker --pool=solo -l info
+
+backend1234

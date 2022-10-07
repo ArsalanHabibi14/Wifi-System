@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>This is Files</h1>
+	<hr>
+	{% for file in files %}
+		<p style="color: blue;">{{ file }}</p>		
+		<hr>
+	{% endfor %}
+{% endblock %}

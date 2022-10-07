@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if connections|length > 0 %}
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Send</button>
+	</form>
+{% else %}
+	<h1>You can't send files beacuse no user not connect to your wifi</h1>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Home Page
+{% endblock %}
+
+{% block content %}
+	{% if not request.user.is_authenticated %}
+		<div class="container">
+			<div class="row">
+				<center>
+					<h1>If you want to use the wifis you should login or sign up</h1>
+					<a href="{% url 'register_page' %}" class="btn btn-primary">Sign Up</a>
+					<a href="{% url 'login_page' %}" class="btn btn-danger">login</a>
+				</center>
+			</div>
+		</div>
+		{% else %}
+		<div class="container">
+			<div class="row">
+				{% for wifi in wifis %}
+					<div>
+						<h1>{{ wifi.wifi_name }}</h1>
+						<a href="{% url 'password_connection' wifi.id %}" style="padding-left: 600px;padding-top: 10px">Connect</a>
+						<hr>
+					</div><br>
+				{% endfor %}
+			</div>
+		</div>
+	{% endif %}
+{% endblock %}

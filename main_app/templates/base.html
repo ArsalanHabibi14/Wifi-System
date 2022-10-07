@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}Home Page{% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'bootstrap-4/css/bootstrap.min.css' %}">
+</head>
+<body>
+	{% if messages %}
+	    {% for message in messages %}
+	        <div class="alert  alert-{{ message.tags }}">
+	            <p class="alert__message">{{ message }}</p>
+	            <button class="close">x</button>
+	        </div>
+	    {% endfor %}
+	{% endif %}
+	<a href="{% url 'send_file_page' %}">Send File</a> |
+	<a href="{% url 'active' %}">Active Wifi</a>
+	<h4 style="direction: ltr;">{{ request.user.username }}</h4>
+	<hr>
+	{% block content %}
+	{% endblock %}
+	<script src="bootstrap-4/js/jquery-3.3.1.min.js"></script>
+	<script src="bootstrap-4/js/bootstrap.min.js"></script>
+</body>
+</html>
